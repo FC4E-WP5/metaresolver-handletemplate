@@ -1,5 +1,3 @@
-[toc]
-
 # MetaResolver_HandleTemplate
 
 ```
