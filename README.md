@@ -99,7 +99,7 @@
 
 ## GUI example
 
-1. Go to ~~https://141.5.100.20:8000/~~ http://hdl.handle.net/
+1. Go to https://141.5.100.20:8000/ or https://hdl.handle.net/
 
 2. Put into the text field:
    - **ARK:** `21.T11973/MR@ark:/13030/tf5p30086k`
