@@ -44,8 +44,6 @@
                     <if value="extension" test="matches" expression="^((a|A)(r|R)(k|K):(?:\/\d{5,9})+\/[a-zA-Z\d]+(-[a-zA-Z\d]+)*)$" parameter="x">
                         <value data="https://n2t.net/${x[1]}"/>
                     </if>
-
-
                 <else>
                     <if value="extension" test="matches" expression="^((o|O)(a|A)(i|I):(a|A)(r|R)(X|x)(i|I)(v|V):(o|O)(r|R)(g|G):\d{2}((9|0)[1-9]|1[0-2])\.\d{4,5}(v\d+)?)\?metadata$" parameter="x">
                         <value data="http://export.arxiv.org/oai2?verb=GetRecord&metadataPrefix=oai_dc&identifier=${x[1]}"/>
