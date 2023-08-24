@@ -5,15 +5,15 @@
     <template delimiter="@">
         <foreach>
             <if value="type" test="equals" expression="URL">
-                <if value="extension" test="matches" expression="^([U,u][R,r][N,n]:[N,n][B,b][N,n]:[D,d][E,e][a-z0-9()+,\\\-.:=@;$_!*'%\\\/?#]+)&metadata$" parameter="x">
+                <if value="extension" test="matches" expression="^([U,u][R,r][N,n]:[N,n][B,b][N,n]:[D,d][E,e][a-z0-9()+,\\\-.:=@;$_!*'%\\\/?#]+)\?metadata$" parameter="x">
                     <value data="https://nbn-resolving.org/json/${x[1]}"/>
                 </if>
                 <else>
-                    <if value="extension" test="matches" expression="^([U,u][R,r][N,n]:[N,n][B,b][N,n]:[D,d][E,e][a-z0-9()+,\\\-.:=@;$_!*'%\\\/?#]+)&landingpage$" parameter="x">
+                    <if value="extension" test="matches" expression="^([U,u][R,r][N,n]:[N,n][B,b][N,n]:[D,d][E,e][a-z0-9()+,\\\-.:=@;$_!*'%\\\/?#]+)\?landingpage$" parameter="x">
                         <value data="https://nbn-resolving.org/redirect/${x[1]}"/>
                     </if>
                 <else>
-                    <if value="extension" test="matches" expression="^([U,u][R,r][N,n]:[N,n][B,b][N,n]:[D,d][E,e][a-z0-9()+,\\\-.:=@;$_!*'%\\\/?#]+)&resource$" parameter="x">
+                    <if value="extension" test="matches" expression="^([U,u][R,r][N,n]:[N,n][B,b][N,n]:[D,d][E,e][a-z0-9()+,\\\-.:=@;$_!*'%\\\/?#]+)\?resource$" parameter="x">
                         <value data="http://141.5.103.157/api/resource/urn/${x[1]}"/>
                     </if>
                 <else>
@@ -21,11 +21,11 @@
                         <value data="https://nbn-resolving.org/json/${x[1]}"/>
                     </if>
                 <else>
-                    <if value="extension" test="matches" expression="^([U,u][R,r][N,n]:[N,n][B,b][N,n]:[F,f][I,i][a-z0-9()+,\\\-.:=@;$_!*'%\\\/?#]+)&landingpage$" parameter="x">
+                    <if value="extension" test="matches" expression="^([U,u][R,r][N,n]:[N,n][B,b][N,n]:[F,f][I,i][a-z0-9()+,\\\-.:=@;$_!*'%\\\/?#]+)\?landingpage$" parameter="x">
                         <value data="https://urn.fi/${x[1]}"/>
                     </if>
                 <else>
-                    <if value="extension" test="matches" expression="^((s|S)(w|W)(h|H):[1-9]:(cnt|dir|rel|rev|snp):[0-9a-f]+(;(origin|visit|anchor|path|lines)=\\S+)*)&landingpage$" parameter="x">
+                    <if value="extension" test="matches" expression="^((s|S)(w|W)(h|H):[1-9]:(cnt|dir|rel|rev|snp):[0-9a-f]+(;(origin|visit|anchor|path|lines)=\\S+)*)\?landingpage$" parameter="x">
                         <value data="https://archive.softwareheritage.org/api/1/resolve/${x[1]}"/>
                     </if>
                 <else>
@@ -33,11 +33,11 @@
                         <value data="https://archive.softwareheritage.org/api/1/resolve/${x[1]}"/>
                     </if>
                 <else>
-                    <if value="extension" test="matches" expression="^((a|A)(r|R)(k|K):(?:\/\d{5,9})+\/[a-zA-Z\d]+(-[a-zA-Z\d]+)*)&metadata$" parameter="x">
+                    <if value="extension" test="matches" expression="^((a|A)(r|R)(k|K):(?:\/\d{5,9})+\/[a-zA-Z\d]+(-[a-zA-Z\d]+)*)\?metadata$" parameter="x">
                         <value data="https://n2t.net/${x[1]}/?"/>
                     </if>
                 <else>
-                    <if value="extension" test="matches" expression="^((a|A)(r|R)(k|K):(?:\/\d{5,9})+\/[a-zA-Z\d]+(-[a-zA-Z\d]+)*)&landingpage$" parameter="x">
+                    <if value="extension" test="matches" expression="^((a|A)(r|R)(k|K):(?:\/\d{5,9})+\/[a-zA-Z\d]+(-[a-zA-Z\d]+)*)\?landingpage$" parameter="x">
                         <value data="https://n2t.net/${x[1]}"/>
                     </if>
                 <else>
@@ -45,15 +45,15 @@
                         <value data="https://n2t.net/${x[1]}"/>
                     </if>
                 <else>
-                    <if value="extension" test="matches" expression="^((o|O)(a|A)(i|I):(a|A)(r|R)(X|x)(i|I)(v|V):(o|O)(r|R)(g|G):\d{2}((9|0)[1-9]|1[0-2])\.\d{4,5}(v\d+)?)&metadata$" parameter="x">
+                    <if value="extension" test="matches" expression="^((o|O)(a|A)(i|I):(a|A)(r|R)(X|x)(i|I)(v|V):(o|O)(r|R)(g|G):\d{2}((9|0)[1-9]|1[0-2])\.\d{4,5}(v\d+)?)\?metadata$" parameter="x">
                         <value data="http://export.arxiv.org/oai2?verb=GetRecord&metadataPrefix=oai_dc&identifier=${x[1]}"/>
 	                   </if>
                 <else>
-                    <if value="extension" test="matches" expression="^((a|A)(r|R)(X|x)(i|I)(v|V):\d{2}((9|0)[1-9]|1[0-2])\.\d{4,5}(v\d+)?)&landingpage$" parameter="x">
+                    <if value="extension" test="matches" expression="^((a|A)(r|R)(X|x)(i|I)(v|V):\d{2}((9|0)[1-9]|1[0-2])\.\d{4,5}(v\d+)?)\?landingpage$" parameter="x">
                         <value data="https://arxiv.org/abs/${x[1]}"/>
                     </if>
                 <else>
-                    <if value="extension" test="matches" expression="^((a|A)(r|R)(X|x)(i|I)(v|V):\d{2}((9|0)[1-9]|1[0-2])\.\d{4,5}(v\d+)?)&resource$" parameter="x">
+                    <if value="extension" test="matches" expression="^((a|A)(r|R)(X|x)(i|I)(v|V):\d{2}((9|0)[1-9]|1[0-2])\.\d{4,5}(v\d+)?)\?resource$" parameter="x">
                         <value data="https://arxiv.org/pdf/${x[1]}.pdf"/>
                     </if>
                 <else>
