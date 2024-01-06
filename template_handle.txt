@@ -62,18 +62,22 @@
                     <if value="extension" test="matches" expression="^((o|O)(a|A)(i|I):(a|A)(r|R)(X|x)(i|I)(v|V):(o|O)(r|R)(g|G):\d{2}((9|0)[1-9]|1[0-2])\.\d{4,5}(v\d+)?)\?metadata$" parameter="x">
                         <value data="http://export.arxiv.org/oai2?verb=GetRecord&metadataPrefix=oai_dc&identifier=${x[1]}"/>
      		    </if>
+     		<else>
+                    <if value="extension" test="matches" expression="^([a|A][r|R][X|x][i|I][v|V]:(\d{2}((9|0)[1-9]|1[0-2])\.\d{4,5}(v\d+)?))\?metadata$" parameter="x">
+                        <value data="http://export.arxiv.org/oai2?verb=GetRecord&metadataPrefix=oai_dc&identifier=oai:arXiv:org:${x[2]}"/>
+                    </if>
                 <else>
-                    <if value="extension" test="matches" expression="^((a|A)(r|R)(X|x)(i|I)(v|V):\d{2}((9|0)[1-9]|1[0-2])\.\d{4,5}(v\d+)?)\?landingpage$" parameter="x">
-                        <value data="https://arxiv.org/abs/${x[1]}"/>
+                    <if value="extension" test="matches" expression="^((a|A)(r|R)(X|x)(i|I)(v|V):(\d{2}((9|0)[1-9]|1[0-2])\.\d{4,5}(v\d+)?))\?landingpage$" parameter="x">
+                        <value data="https://arxiv.org/abs/${x[7]}"/>
                     </if>
                 <else>
                     <if value="extension" test="matches" expression="^((a|A)(r|R)(X|x)(i|I)(v|V):\d{2}((9|0)[1-9]|1[0-2])\.\d{4,5}(v\d+)?)\?resource$" parameter="x">
                         <value data="https://arxiv.org/pdf/${x[1]}.pdf"/>
                     </if>
                 <else>
-                    <if value="extension" test="matches" expression="^((a|A)(r|R)(X|x)(i|I)(v|V):\d{2}((9|0)[1-9]|1[0-2])\.\d{4,5}(v\d+)?)$" parameter="x">
-                        <value data="https://arxiv.org/abs/${x[1]}"/>
-                    </if>
+                    <if value="extension" test="matches" expression="^((a|A)(r|R)(X|x)(i|I)(v|V):(\d{2}((9|0)[1-9]|1[0-2])\.\d{4,5}(v\d+)?))$" parameter="x">
+                        <value data="https://arxiv.org/abs/${x[7]}"/>
+                    </if> 
                 </else>
             </if>
             <else>
