@@ -77,7 +77,15 @@
                 <else>
                     <if value="extension" test="matches" expression="^((a|A)(r|R)(X|x)(i|I)(v|V):(\d{2}((9|0)[1-9]|1[0-2])\.\d{4,5}(v\d+)?))$" parameter="x">
                         <value data="https://arxiv.org/abs/${x[7]}"/>
-                    </if> 
+                    </if>
+           	<else>
+                    <if value="extension" test="matches" expression="^(10.\d{4,9}/(?!zenodo)[-._;()\/:A-Z0-9]+)\?landingpage$" parameter="x">
+                        <value type="URL" data="https://dx.doi.org/${x[1]}"/>
+                    </if>    
+                <else>
+                    <if value="extension" test="matches" expression="^(10.\d{4,9}/(?!zenodo)[-._;()\/:A-Z0-9]+)\?metadata$" parameter="x">
+                        <value type="URL" data="https://api.crossref.org/works/${x[1]}"/>
+                    </if>  
                 </else>
             </if>
             <else>
