@@ -85,7 +85,23 @@
                 <else>
                     <if value="extension" test="matches" expression="^(10.\d{4,9}/(?!zenodo)[-._;()\/:A-Z0-9]+)\?metadata$" parameter="x">
                         <value type="URL" data="https://api.crossref.org/works/${x[1]}"/>
-                    </if>  
+                    </if>
+                 <else>
+                    <if value="extension" test="matches" expression="^10.5281/zenodo\.([0-9]{7})\?metadata$" parameter="x">
+                        <value type="URL" data="https://zenodo.org/api/records/${x[1]}"/>
+                    </if>
+                <else>
+                    <if value="extension" test="matches" expression="^10.5281/zenodo\.([0-9]{7})\?landingpage$" parameter="x">
+                        <value type="URL" data="https://zenodo.org/record/${x[1]}"/>
+                    </if>
+                <else>
+                    <if value="extension" test="matches" expression="^10.5281/(zenodo\.[0-9]{7})\?resource$" parameter="x">
+                        <value type="URL" data="http://141.5.103.157/api/resource/${x[1]}"/>
+                    </if>
+                <else>
+                    <if value="extension" test="matches" expression="^10.5281/zenodo\.([0-9]{7})$" parameter="x">
+                        <value type="URL" data="https://zenodo.org/record/${x[1]}"/>
+                    </if>                   
                 </else>
             </if>
             <else>
