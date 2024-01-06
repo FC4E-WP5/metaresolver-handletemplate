@@ -101,7 +101,15 @@
                 <else>
                     <if value="extension" test="matches" expression="^10.5281/zenodo\.([0-9]{7})$" parameter="x">
                         <value type="URL" data="https://zenodo.org/record/${x[1]}"/>
-                    </if>                   
+                    </if>
+                <else>
+                    <if value="extension" test="matches" expression="^((\d{4})-(\d{4})-(\d{4})-(\d{3}[0-9X]))\?landingpage$" parameter="x">
+                        <value type="URL" data="https://orcid.org/${x[1]}"/>
+                    </if>
+                <else>
+                    <if value="extension" test="matches" expression="^((\d{4})-(\d{4})-(\d{4})-(\d{3}[0-9X]))$" parameter="x">
+                        <value type="URL" data="https://orcid.org/${x[1]}"/>
+                    </if>                 
                 </else>
             </if>
             <else>
