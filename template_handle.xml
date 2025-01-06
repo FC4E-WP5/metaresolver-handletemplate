@@ -161,7 +161,19 @@
                 <else>
                     <if value="extension" test="matches" expression="^((\d{4})-(\d{4})-(\d{4})-(\d{3}[0-9X]))$" parameter="x">
                         <value type="URL" data="https://orcid.org/${x[1]}"/>
-                    </if>                 
+                    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^([a-z][a-z\-]*(?:\.[a-z][a-z\-]*)?(?:\.[0-9]*)?)\?landingpage$" parameter="x">
+		        <value type="URL" data="https://zbmath.org/authors/${x[1]}"/>
+		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^([a-z][a-z\-]*(?:\.[a-z][a-z\-]*)?(?:\.[0-9]*)?)\?metadata$" parameter="x">
+		        <value type="URL" data="https://api.zbmath.org/v1/author/${x[1]}"/>
+		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^([a-z][a-z\-]*(?:\.[a-z][a-z\-]*)?(?:\.[0-9]*)?)$" parameter="x">
+		        <value type="URL" data="https://zbmath.org/authors/${x[1]}"/>
+		    </if>          
                 </else>
             </if>
             <else>
