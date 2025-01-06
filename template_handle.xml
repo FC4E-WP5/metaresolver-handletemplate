@@ -210,6 +210,10 @@
 		    <if value="extension" test="matches" expression="^(0[0-9a-zA-Z]{6}[0-9]{2})$" parameter="x">
 		        <value type="URL" data="https://ror.org/${x[1]}"/>
 		    </if>
+		<else>
+		    <if value='extension' test='matches' expression='^(\d{15}[1-9X])\?landingpage$' parameter='x'>
+		        <value type='URL' data='https://isni.org/isni/${x[1]}'/>
+		    </if>
                 </else>
             </if>
             <else>
