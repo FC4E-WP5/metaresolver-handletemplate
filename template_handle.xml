@@ -238,6 +238,10 @@
 		    <if value="extension" test="matches" expression="^(\d{4}-\d{3}[0-9X])\?landingpage$" parameter="x">
 		        <value type="URL" data="https://portal.issn.org/resource/ISSN/${x[1]}"/>
 		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^(\d{13})\?landingpage$" parameter="x">
+		        <value type="URL" data="https://www.ean-suche.de/?q=${x[1]}"/>
+		    </if>
                 </else>
             </if>
             <else>
