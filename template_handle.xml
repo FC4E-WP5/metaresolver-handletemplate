@@ -198,6 +198,18 @@
 		    <if value="extension" test="matches" expression="^(\d{1,7})$" parameter="x">
 		        <value type="URL" data="https://zbmath.org/${x[1]}"/>
 		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^(0[0-9a-zA-Z]{6}[0-9]{2})\?landingpage$" parameter="x">
+		        <value type="URL" data="https://ror.org/${x[1]}"/>
+		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^(0[0-9a-zA-Z]{6}[0-9]{2})\?metadata$" parameter="x">
+		        <value type="URL" data="https://api.ror.org/v1/organizations/${x[1]}"/>
+		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^(0[0-9a-zA-Z]{6}[0-9]{2})$" parameter="x">
+		        <value type="URL" data="https://ror.org/${x[1]}"/>
+		    </if>
                 </else>
             </if>
             <else>
