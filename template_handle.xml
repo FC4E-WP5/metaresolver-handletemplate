@@ -217,6 +217,10 @@
 		<else>
 		    <if value='extension' test='matches' expression='^((?:\d{3}-){4}\d)$' parameter='x'>
 		        <value type='URL' data='https://www.islrn.org/resources/${x[1]}'/>
+		    </if>    
+		<else>
+		    <if value='extension' test='matches' expression='^(\d{15}[1-9X])\?landingpage$' parameter='x'>
+		        <value type='URL' data='https://isni.org/isni/${x[1]}'/>
 		    </if>
                 </else>
             </if>
