@@ -186,6 +186,18 @@
 		    <if value="extension" test="matches" expression="^([0-9]{1,5})$" parameter="x">
 		        <value type="URL" data="https://zbmath.org/software/${x[1]}"/>
 		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^(\d{1,7})\?landingpage$" parameter="x">
+		        <value type="URL" data="https://zbmath.org/${x[1]}"/>
+		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^(\d{1,7})\?metadata$" parameter="x">
+		        <value type="URL" data="https://api.zbmath.org/v1/document/${x[1]}"/>
+		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^(\d{1,7})$" parameter="x">
+		        <value type="URL" data="https://zbmath.org/${x[1]}"/>
+		    </if>
                 </else>
             </if>
             <else>
