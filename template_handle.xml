@@ -28,11 +28,27 @@
 		<else>
 		    <if value="extension" test="matches" expression="^([U,u][R,r][N,n]:[N,n][B,b][N,n]:[N,n][L,l][a-z0-9()+,\\\-.:=@;$_!*'%\\\/?#]+)?landingpage$" parameter="x">
 		        <value data="https://www.persistent-identifier.nl/${x[1]}"/>
-		</if>
+		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^([U,u][R,r][N,n]:[N,n][B,b][N,n]:[C,c][H,h][a-z0-9()+,\\\-.:=@;$_!*'%\\\/?#]+)?landingpage$" parameter="x">
+		        <value data="https://nbn-resolving.org/redirect/${x[1]}"/>
+		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^([U,u][R,r][N,n]:[N,n][B,b][N,n]:[C,c][H,h][a-z0-9()+,\\\-.:=@;$_!*'%\\\/?#]+)?metadata$" parameter="x">
+		        <value data="https://nbn-resolving.org/json/${x[1]}"/>
+		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^([U,u][R,r][N,n]:[N,n][B,b][N,n]:[C,c][H,h][a-z0-9()+,\\\-.:=@;$_!*'%\\\/?#]+)?resource$" parameter="x">
+		        <value data="http://141.5.103.157/api/resource/${x[1]}"/>
+		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^([U,u][R,r][N,n]:[N,n][B,b][N,n]:[C,c][H,h][a-z0-9()+,\\\-.:=@;$_!*'%\\\/?#]+)$" parameter="x">
+		        <value data="https://nbn-resolving.org/redirect/${x[1]}"/>
+		    </if>
 		<else>
 		    <if value="extension" test="matches" expression="^([U,u][R,r][N,n]:[N,n][B,b][N,n]:[N,n][L,l][a-z0-9()+,\\\-.:=@;$_!*'%\\\/?#]+)$" parameter="x">
 		        <value data="https://www.persistent-identifier.nl/${x[1]}"/>
-		</if>
+		    </if>
             	<else>
                     <if value="extension" test="matches" expression="^((s|S)(w|W)(h|H):[1-9]:(cnt|dir|rel|rev|snp):[0-9a-f]+(;(origin|visit|anchor|path|lines)=\\S+)*)\?landingpage$" parameter="x">
                         <value data="https://archive.softwareheritage.org/${x[1]}"/>
