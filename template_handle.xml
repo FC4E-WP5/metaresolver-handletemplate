@@ -246,6 +246,14 @@
 		    <if value="extension" test="matches" expression="^([1-9]\d{0,7})\?landingpage$" parameter="x">
 		        <value type="URL" data="https://pubmed.ncbi.nlm.nih.gov/${x[1]}"/>
 		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^(\d{4}[A-Za-z0-9&\.]{5}[A-Za-z0-9\.]{4}[A-Za-z0-9\.][0-9\.]{4}[A-Za-z])\?landingpage$" parameter="x">
+		        <value type="URL" data="https://ui.adsabs.harvard.edu/abs/${x[1]}"/>
+		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^(\d{4}[A-Za-z0-9&\.]{5}[A-Za-z0-9\.]{4}[A-Za-z0-9\.][0-9\.]{4}[A-Za-z])\?resource$" parameter="x">
+		        <value type="URL" data="https://ui.adsabs.harvard.edu/link_gateway/${x[1]}/PUB_HTML"/>
+		    </if>
                 </else>
             </if>
             <else>
