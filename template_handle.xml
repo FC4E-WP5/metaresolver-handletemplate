@@ -242,6 +242,10 @@
 		    <if value="extension" test="matches" expression="^(\d{13})\?landingpage$" parameter="x">
 		        <value type="URL" data="https://www.ean-suche.de/?q=${x[1]}"/>
 		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^([1-9]\d{0,7})\?landingpage$" parameter="x">
+		        <value type="URL" data="https://pubmed.ncbi.nlm.nih.gov/${x[1]}"/>
+		    </if>
                 </else>
             </if>
             <else>
