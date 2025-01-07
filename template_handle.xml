@@ -274,6 +274,10 @@
 		    <if value="extension" test="matches" expression="^((GCA|GCF)_\d{9}(\.\d+)?)\?landingpage$" parameter="x">
 		        <value type="URL" data="https://www.ncbi.nlm.nih.gov/datasets/genome/${x[1]}"/>
 		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^(.*)$" parameter="x">
+		        <value data="https://pidmr.lab.pidconsortium.net/help.html?hdl=${x[1]}"/>
+		    </if>
                 </else>
             </if>
             <else>
