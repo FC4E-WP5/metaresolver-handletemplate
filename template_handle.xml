@@ -258,6 +258,10 @@
 		    <if value="extension" test="matches" expression="^https:\/\/raid\.org\/(10\.(\d+)\/([a-zA-Z0-9]+)(\/)?)\?landingpage$" parameter="x">
 		        <value type="URL" data="https://raid.org/${x[1]}"/>
 		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^(phs\d{6}\.v\d+\.\w\d+)\?landingpage$" parameter="x">
+		        <value type="URL" data="https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=${x[1]}"/>
+		    </if>
                 </else>
             </if>
             <else>
