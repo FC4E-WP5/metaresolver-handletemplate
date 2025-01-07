@@ -270,6 +270,10 @@
 		    <if value="extension" test="matches" expression="^(PXD\d+)\?landingpage$" parameter="x">
 		        <value type="URL" data="https://www.ebi.ac.uk/pride/archive/projects/${x[1]}"/>
 		    </if>
+		<else>
+		    <if value="extension" test="matches" expression="^((GCA|GCF)_\d{9}(\.\d+)?)\?landingpage$" parameter="x">
+		        <value type="URL" data="https://www.ncbi.nlm.nih.gov/datasets/genome/${x[1]}"/>
+		    </if>
                 </else>
             </if>
             <else>
